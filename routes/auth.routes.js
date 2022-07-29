@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
 const UserModel = require("../models/User.model");
 
-//---------- Iniciar session
+//---------- Registro
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup.hbs");
@@ -63,6 +63,8 @@ router.post("/signup", async (req, res, next) => {
     next(err);
   }
 });
+
+// ---------- inicio de sesion
 // Vista de Login
 
 router.get("/login", (req, res, next) => {
@@ -99,11 +101,31 @@ router.post("/login", async (req, res, next) => {
       });
       return;
     }
-
+    
     //crear sesion activa
-  } catch (error) {
+
+    req.session.user = {
+        _id: newUser._id,
+        email: newUser.email,
+    }
+
+    req.session.save(() => {
+        res.redirect("/profile")
+    })
+
+  } catch (err) {
     next(err);
   }
+
+  router.post("/logout", (req, res, next) => {
+    req.session.destroy(() => {
+        res.redirect("/")
+    })
+  })
+
+
 });
+
+
 
 module.exports = router;
