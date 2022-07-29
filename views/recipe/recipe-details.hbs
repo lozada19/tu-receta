@@ -1,0 +1,12 @@
+<h2>Detalles de las peliculas</h2>
+
+<div>
+    <p>Nombre: {{detailsRecipe.recipename}}</p>
+    <p>Ingredientes: {{detailsRecipe.ingredients}}</p>
+    <p>Preparacion: {{detailsRecipe.preparation}}</p>
+    <img src="" alt="">
+    
+    {{#each detailsRecipe.owner}}
+    {{this.username}}
+    {{/each}}
+</div>

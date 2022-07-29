@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
 const UserModel = require("../models/User.model");
 
-//---------- Registro
+//----------------- REGISTRO -------------------//
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup.hbs");
@@ -64,7 +64,7 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-// ---------- inicio de sesion
+// ------------------  INICIAR SESION    ------------------//
 // Vista de Login
 
 router.get("/login", (req, res, next) => {

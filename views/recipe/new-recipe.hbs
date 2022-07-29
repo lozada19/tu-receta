@@ -1,0 +1,25 @@
+<h1>recetas</h1>
+
+ <div>
+  <form action="recipe/new-recipe" method="POST">
+
+    <label for="recipename">Nombre:</label>
+    <input type="text" name="repipename" required="true">
+    <br>
+    <label for="ingredients"> Ingredientes:</label>
+    <input type="text" name="ingredients" required="true">
+    <br>
+    <label for="preparation">Preparacion:</label>
+    <input type="text" name="preparation" required="true">
+    <br>
+    <label for="owner">Creador</label>
+    <select name="owner" multiple="true">
+        {{#each newUser}}
+        <option value="{{this._id}}"> {{this.name}}</option>
+        {{/each}}
+    </select>
+    
+    <button>Crear receta</button>
+
+  </form>
+ </div>
