@@ -9,7 +9,7 @@ router.get("/create", (req, res, next) => {
 
   //se busca los usuarios
 
-  UserModel.findOne().select("name")
+  UserModel.findOne()
 
   //se pasa a la vista
   .then((newUser)=> {
@@ -121,7 +121,7 @@ router.post("/:recipeId", (req, res, next) => {
   const { recipeId } = req.params
 
   RecipeModel.findByIdAndDelete(recipeId)
-  .tren((deleteRecipe) => {
+  .then((deleteRecipe) => {
     res.redirect("recipe/list.hbs", {
       deleteRecipe
     })

@@ -12,12 +12,13 @@
     <label for="preparation">Preparacion:</label>
     <input type="text" name="preparation" required="true">
     <br>
-    <label for="owner">Creador</label>
-    <select name="owner" multiple="true">
+    <label for="owner">Creador:</label>
+    <input type="text" name="owner">
+     <select name="owner" >
         {{#each newUser}}
         <option value="{{this._id}}"> {{this.name}}</option>
         {{/each}}
-    </select>
+    </select> 
     <br>
     
     <button>Crear receta</button>
