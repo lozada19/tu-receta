@@ -4,7 +4,7 @@
   <form action="/recipe/new-recipe" method="POST">
 
     <label for="recipename">Nombre:</label>
-    <input type="text" name="repipename" required="true">
+    <input type="text" name="recipename" required="true">
     <br>
     <label for="ingredients"> Ingredientes:</label>
     <input type="text" name="ingredients" required="true">
@@ -12,16 +12,9 @@
     <label for="preparation">Preparacion:</label>
     <input type="text" name="preparation" required="true">
     <br>
-    <label for="owner">Creador:</label>
-    <input type="text" name="owner">
-     <select name="owner" >
-        {{#each newUser}}
-        <option value="{{this._id}}"> {{this.name}}</option>
-        {{/each}}
-    </select> 
-    <br>
+  
     
-    <button>Crear receta</button>
+    <button type="submit">Crear receta</button>
 
   </form>
  </div>

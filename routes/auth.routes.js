@@ -13,7 +13,7 @@ router.post("/signup", async (req, res, next) => {
 
   // Validar
 
-  if (!username || !email || !password) {
+  if (username === "" || email === "" || password === "" ) {
     res.render("auth/signup.hbs", {
       errorMessage: "Debe rellenar todos los campos",
     });
@@ -35,7 +35,7 @@ router.post("/signup", async (req, res, next) => {
   try {
     // crear un usiario
 
-    const foundUser = await UserModel.findOne({
+    const foundUser = await UserModel.findOne({  // si el correo o nombre ya a sido usado 
       $or: [{ username: username }, { email: email }],
     });
     if (foundUser !== null) {
@@ -74,9 +74,11 @@ router.get("/login", (req, res, next) => {
 // POST de login
 
 router.post("/login", async (req, res, next) => {
+
   const { email, password } = req.body;
+  
   // Validar si hay campos vacion
-  if (!email || !password) {
+  if (email === "" || password === "") {
     res.render("auth/login", {
       errorMessage: "Debes rellenar todos los campos",
     });
@@ -87,7 +89,7 @@ router.post("/login", async (req, res, next) => {
     // validar si el usuario esta en base de datos
     const newUser = await UserModel.findOne({ email: email });
 
-    if (!newUser) {
+    if (newUser === null) {
       res.render("auth/login", {
         errorMessage: "Lo sentimos, el usuario no esta registrado.",
       });
@@ -95,7 +97,7 @@ router.post("/login", async (req, res, next) => {
     }
     // validas contraseña
     const passwordCheck = await bcryptjs.compare(password, newUser.password);
-    if (!passwordCheck) {
+    if (passwordCheck ===  false) {
       res.render("auth/login", {
         errorMessage: "Contraseña Incorrecta.",
       });
@@ -116,7 +118,7 @@ router.post("/login", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-
+     // permite al usuerio cerrar sesion 
   router.post("/logout", (req, res, next) => {
     req.session.destroy(() => {
         res.redirect("/")

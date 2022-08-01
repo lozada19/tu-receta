@@ -9,23 +9,18 @@ router.get("/create", (req, res, next) => {
 
   //se busca los usuarios
 
-  UserModel.findOne()
 
   //se pasa a la vista
-  .then((newUser)=> {
-    res.render("recipe/new-recipe", {
-      newUser
-    })
-  })
-  .catch((err) => {
-    next(err)
-  })
+  
+    res.render("recipe/new-recipe")
+      
+   
 })
 
 router.post("/create", (req, res, next) => {
 
   // recibimos la data
-  const { recipename, ingredients, preparation, owner } = req.body
+  const { recipename, ingredients, preparation, owner } = req.body  //req.body sera la informacion 
 
   //creamos la receta en la data
   RecipeModel.create({
