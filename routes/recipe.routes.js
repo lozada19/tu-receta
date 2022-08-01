@@ -112,14 +112,13 @@ router.post("/:recipeId/edit", ( req, res, next ) => {
 
 // --------------------- ELIMINAR UNA RECETA ------------------------//
 
-router.post("/:recipeId", (req, res, next) => {
+router.post("/:recipeId/delete", (req, res, next) => {
+
   const { recipeId } = req.params
 
   RecipeModel.findByIdAndDelete(recipeId)
-  .then((deleteRecipe) => {
-    res.redirect("recipe/list.hbs", {
-      deleteRecipe
-    })
+  .then(() => {
+    res.redirect("/recipe")
   })
   .catch((err) => {
     next(err)
