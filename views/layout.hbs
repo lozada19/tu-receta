@@ -12,13 +12,18 @@
 
     <nav>
       <a href="/">Inicio</a>
+      <a href="/recipe">lista Recetas</a> 
+      {{#if isUserActive}}
+       <a href="/recipe/create">crear receta</a>
+      <a href="/profile">Perfil</a> 
+      <a href="/auth/logout">Cerrar Sesion</a>
+      
+      {{else}}
       <a href="/auth/signup">Resgistrate</a>
       <a href="/auth/login">Acceder</a>
-      <a href="/profile">Perfil</a> 
-
       
-      <a href="/recipe/create">crear receta</a>
-      <a href="/recipe">lista Recetas</a> 
+     
+      {{/if}}
       
     
 

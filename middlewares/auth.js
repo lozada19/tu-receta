@@ -7,5 +7,13 @@ function isLoggedIn(req, res, next)  {
     }
 }
 
-
-module.exports = isLoggedIn
+function localsUpdate(req, res, next) {
+    if (req.session.user === undefined) {
+      res.locals.isUserActive = false;
+    } else if (req.session.user !== undefined) {
+      res.locals.isUserActive = true;
+    }
+    next();
+  }
+  
+module.exports = { isLoggedIn, localsUpdate };

@@ -10,5 +10,5 @@ required: true
 },
 })
 
-const CommentModel= model("comment", commentSchema);
+const CommentModel= model("Comment", commentSchema);
 module.exports = CommentModel;

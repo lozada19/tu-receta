@@ -119,14 +119,14 @@ router.post("/login", async (req, res, next) => {
     next(err);
   }
      // permite al usuerio cerrar sesion 
-  router.post("/logout", (req, res, next) => {
-    req.session.destroy(() => {
-        res.redirect("/")
-    })
-  })
-
-
+  
 });
+
+router.get("/logout", (req, res, next) => {
+  req.session.destroy(() => {
+      res.redirect("/")
+  })
+})
 
 
 
