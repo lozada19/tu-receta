@@ -8,7 +8,7 @@ const UserModel = require("../models/User.model")
 router.get("/create", (req, res, next) => {
 
   //se busca los usuarios
-
+  console.log("test")
 
   //se pasa a la vista
   
@@ -20,14 +20,14 @@ router.get("/create", (req, res, next) => {
 router.post("/create", (req, res, next) => {
 
   // recibimos la data
-  const { recipename, ingredients, preparation, owner } = req.body  //req.body sera la informacion 
-
+  const { recipename, ingredients, preparation } = req.body  //req.body sera la informacion 
+  console.log(req.session.user)
   //creamos la receta en la data
   RecipeModel.create({
-    recipename,
-    ingredients,
-    preparation,
-    owner
+    recipename: recipename,
+    ingredients: ingredients,
+    preparation: preparation,
+    owner:  req.session.user._id 
   })
   .then(()=>{
     res.redirect("/recipe")
@@ -57,6 +57,7 @@ router.get("/:recipeId/details", (req, res, next) => {
 
   RecipeModel.findById(recipeId).populate("owner")
   .then((detailsRecipe) => {
+    console.log(detailsRecipe)
     res.render("recipe/recipe-details", {
       detailsRecipe
     })
