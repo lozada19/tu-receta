@@ -12,5 +12,5 @@ const recipeSchema = new Schema({
     ref: "User",
   },
 });
-const RecipeModel = model("recipe", recipeSchema);
+const RecipeModel = model("Recipe", recipeSchema);
 module.exports = RecipeModel;

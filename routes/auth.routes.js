@@ -76,7 +76,7 @@ router.get("/login", (req, res, next) => {
 router.post("/login", async (req, res, next) => {
 
   const { email, password } = req.body;
-  
+
   // Validar si hay campos vacion
   if (email === "" || password === "") {
     res.render("auth/login", {
@@ -105,7 +105,7 @@ router.post("/login", async (req, res, next) => {
     }
     
     //crear sesion activa
-
+    //en todas nuestras rutas siempre tendremos acceso a req.session.user
     req.session.user = {
         _id: newUser._id,
         email: newUser.email,
