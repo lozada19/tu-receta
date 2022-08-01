@@ -1,8 +1,9 @@
 <div>
-  <form action="/recipe/new-recipe" method="POST">
+  <form action="/recipe/{{dateRecipe._id}}/edit" method="POST">
 
     <label for="recipename">Nombre:</label>
     <input type="text" name="repipename" required="true" value="{{dateRecipe.recipename}}">
+  
     <br>
     <label for="ingredients"> Ingredientes:</label>
     <input type="text" name="ingredients" required="true" value="{{dateRecipe.ingredients}}">
@@ -10,12 +11,9 @@
     <label for="preparation">Preparacion:</label>
     <input type="text" name="preparation" required="true" value="{{dateRecipe.preparation}}">
     <br>
-    <label for="owner">Creador</label>
-    <input type="text" name="owner" required="true" value="{{dateRecipe.owner}}">
-    <br>
-    
     
     <button>Editar</button>
 
   </form>
  </div>
+
