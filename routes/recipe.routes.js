@@ -32,7 +32,7 @@ router.post("/create", (req, res, next) => {
   .then(()=>{
     res.redirect("/recipe")
   })
-  .casth((err) =>{
+  .catch((err) =>{
     next(err)
   } )
 
@@ -52,13 +52,13 @@ router.get("/", (req, res, next) => {
 });
 //------------------------ DETALLES DE LAS RECETAS -------------------//
 router.get("/:recipeId/details", (req, res, next) => {
-
+ // obtener el id de la receta
   const { recipeId } = req.params
 
   RecipeModel.findById(recipeId).populate("owner")
   .then((detailsRecipe) => {
     console.log(detailsRecipe)
-    res.render("recipe/recipe-details", {
+    res.render("recipe/recipe-details.hbs", {
       detailsRecipe
     })
   })
@@ -78,7 +78,7 @@ router.get("/:recipeId/edit", (req, res, next )=> {
   RecipeModel.findById(recipeId)
   .then((dateRecipe) => {
     res.render("recipe/edit-recipe.hbs", {
-      dateRecipe
+      dateRecipe 
     })
   })
   .catch((err) => {
@@ -88,21 +88,20 @@ router.get("/:recipeId/edit", (req, res, next )=> {
 
 //recibi la date, edita y actualiza la data
 router.post("/:recipeId/edit", ( req, res, next ) => {
-
+  console.log("RUTA POST")
   // rebibe el id a utilizar
    const { recipeId } = req.params
 
   //recibe la data de las recetas
-  const { recipename, ingredients, preparation, owner} = req.body
+  const { recipename, ingredients, preparation } = req.body
 
   // actualizar las recetas
   RecipeModel.findByIdAndUpdate(recipeId, {
-    recipename,
-    ingredients,
-    preparation,
-    owner
+    recipename: recipename,
+    ingredients: ingredients,
+    preparation: preparation,
   })
-  .then((updateRecipe) => {
+  .then(() => {
     res.redirect("/recipe")
   })
   .catch((err) => {
