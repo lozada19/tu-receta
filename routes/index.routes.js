@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 });
 
 
-router.use(localsUpdate)
+
 
 const authRoutes = require("./auth.routes");
 router.use("/auth", authRoutes);
@@ -21,7 +21,7 @@ router.use("/profile", profileRoutes);
 const recipeRoutes = require("./recipe.routes");
 router.use("/recipe", recipeRoutes);
 
-// const commentRoutes = require("./comment.routes")
-// router.use("/comment", commentRoutes);
+const commentRoutes = require("./comment.routes")
+router.use("/comment", commentRoutes);
 
 module.exports = router;

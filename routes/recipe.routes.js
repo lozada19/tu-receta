@@ -56,10 +56,19 @@ router.get("/:recipeId/details", (req, res, next) => {
   const { recipeId } = req.params
 
   RecipeModel.findById(recipeId).populate("owner")
+ 
+ 
   .then((detailsRecipe) => {
-    console.log(detailsRecipe)
-    res.render("recipe/recipe-details.hbs", {
-      detailsRecipe
+
+   let isOwner = false
+
+   if(req.session.user._id == detailsRecipe.owner._id){
+       isOwner = true
+   } else  {
+       isOwner = false
+   }
+    res.render("recipe/recipe-details.hbs", { // crear la varieable isOnwer  
+      detailsRecipe, isOwner
     })
   })
   .catch((err) => {

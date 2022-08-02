@@ -1,10 +1,10 @@
-function isLoggedIn(req, res, next) {
-  if (req.session.user === undefined) {
-    res.redirect("/auth/login");
+ function isLoggedIn(req, res, next) {
+   if (req.session.user === undefined) {
+     res.redirect("/auth/login");
   } else {
     next();
   }
-}
+ }
 
 function localsUpdate(req, res, next) {
   if (req.session.user === undefined) {
@@ -14,5 +14,6 @@ function localsUpdate(req, res, next) {
   }
   next();
 }
+
 
 module.exports = { isLoggedIn, localsUpdate };

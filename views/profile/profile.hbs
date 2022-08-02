@@ -5,7 +5,7 @@
 <div>
   {{#each myRecipe}}
     <li>
-      <h1>{{this.recipename}}</h1>
+      <a href="/recipe/{{this._id}}/details">{{this.recipename}}</a>
     </li>
   {{/each}}
 

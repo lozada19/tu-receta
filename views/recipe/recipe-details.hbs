@@ -5,15 +5,17 @@
     <p>Ingredientes: {{detailsRecipe.ingredients}}</p>
     <p>Preparacion: {{detailsRecipe.preparation}}</p>
     <p>Creador: {{detailsRecipe.owner.username}}</p>
-    <img src="" alt="">
+  
+    <img src="{{detailsRecipe.image}}" alt=""  width="200px">
+    <br>
 
-   {{#if isUserActive}}
+   {{#if isOwner}}
    <a href="/recipe/{{detailsRecipe._id}}/edit"><button>Editar</button></a>
 
    <form action="/recipe/{{detailsRecipe._id}}/delete" method="POST">
     <button type="submit"> eliminar</button>
    </form>
-  {{/if}}
+   {{/if}}
    
     
 </div>
