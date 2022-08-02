@@ -1,8 +1,12 @@
 <h1>estas en el perfil</h1>
 
- <h1>Mis recetas</h1>
- 
-    
+<h1>Mis recetas</h1>
 
+<div>
+  {{#each myRecipe}}
+    <li>
+      <h1>{{this.recipename}}</h1>
+    </li>
+  {{/each}}
 
-
+</div>
