@@ -2,6 +2,7 @@ const router = require("express").Router();
 const RecipeModel = require("../models/Recipe.model");
 const UserModel = require("../models/User.model");
 const { isLoggedIn, localsUpdate } = require("../middlewares/auth.js");
+const CommentModel = require("../models/Comment.model");
 
 //GET
 // ------------------------- CREAMOS RECETAS------------------------- //
@@ -45,35 +46,40 @@ router.get("/", (req, res, next) => {
     });
 });
 //------------------------ DETALLES DE LAS RECETAS -------------------//
-router.get("/:recipeId/details", (req, res, next) => {
-  // obtener el id de la receta
-  const { recipeId } = req.params;
+router.get("/:recipeId/details", async (req, res, next) => {
+  try {
+    // obtener el id de la receta
+    const { recipeId } = req.params;
+    const detailsId = await RecipeModel.findById(recipeId).populate("owner");
+    console.log("locote", detailsId);
+    const comment = await CommentModel.find({ recipe: recipeId }).populate(
+      "user"
+    );
+    console.log("locotote", comment);
+    //    RecipeModel.findById(recipeId).populate("owner");
 
-  RecipeModel.findById(recipeId)
-    .populate("owner")
-
-    .then((detailsRecipe) => {
-      let isOwner = false;
-      if (req.session.user !== undefined) {
-        if (req.session.user._id == detailsRecipe.owner._id) {
-          isOwner = true;
-        } else {
-          isOwner = false;
-        }
-        res.render("recipe/recipe-details.hbs", {
-          // crear la varieable isOnwer
-          detailsRecipe,
-          isOwner,
-        });
-      } else {
-        res.render("recipe/recipe-details.hbs", {
-          detailsRecipe,
-        });
-      }
-    })
-    .catch((err) => {
-      next(err);
+    // .then((detailsRecipe) => {
+    //   let isOwner = false;
+    //   if (req.session.user !== undefined) {
+    //     if (req.session.user._id == detailsRecipe.owner._id) {
+    //       isOwner = true;
+    //     } else {
+    //       isOwner = false;
+    //     }
+    //     res.render("recipe/recipe-details.hbs", {
+    //       // crear la varieable isOnwer
+    //       detailsRecipe,
+    //       isOwner,
+    //     });
+    //   } else {
+    res.render("recipe/recipe-details.hbs", {
+      detailsId,
+      comment,
     });
+  } catch (err) {
+    //     });
+    next(err);
+  }
 });
 
 //----------------------- EDITAR UNA RECETA -------------------------//
