@@ -15,7 +15,7 @@
     <form action="/recipe/{{detailsId._id}}/delete" method="POST">
       <button type="submit"> eliminar</button>
     </form>
-  {{/if}}
+  
 
 </div>
 
@@ -32,13 +32,14 @@
   </form>
 
 </div>
+{{/if}}
 <div>
 
   {{#each comment}}
-    <li>
-      <p>{{this.user.username}}</p>
+    
+    <p>{{this.user.username}} Dice:</p>
       <p>{{this.message}}</p>
-    </li>
+    
   {{/each}}
 
 </div>
