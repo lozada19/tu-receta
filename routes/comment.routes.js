@@ -18,4 +18,21 @@ router.post("/:recipeId/create", (req, res, next) => {
     });
 });
 
+router.get("/:recipeId" , (req, res, netx) => {
+
+  const { recipeId } = req.params
+
+  // se tiene que colocar el id de la recta y usuerio 
+  CommentModel.find({ recipe: recipeId }).populer("user")
+  .then((commentRecipe) => {
+    res.render("recipe/details", {
+     commentRecipe ,
+    })
+  })
+  .catch((err) => {
+    next(err);
+  })
+})
+
+
 module.exports = router;

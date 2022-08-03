@@ -18,7 +18,15 @@
   {{/if}}
 
 </div>
-<br />
+
+<br /> {{#each commentRecipe}}
+        <li>
+          <p>{{this.user}}</p>
+          <p>-{{this.message}}</p>
+        </li>
+        {{/each}}
+
+
 <div>
   <form action="/comment/{{detailsRecipe._id}}/create" method="POST">
 
