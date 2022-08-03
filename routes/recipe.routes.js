@@ -51,9 +51,12 @@ router.get("/:recipeId/details", async (req, res, next) => {
     // obtener el id de la receta
     const { recipeId } = req.params;
     const detailsId = await RecipeModel.findById(recipeId).populate("owner");
+    //console.log("DETALLES DE LA RECETA", detailsId)
     const comment = await CommentModel.find({ recipe: recipeId }).populate(
       "user"
     );
+    //console.log("COMMENT", comment)
+
     RecipeModel.findById(recipeId).populate("owner");
 
     let isOwner = false;
