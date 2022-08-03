@@ -20,11 +20,12 @@
 </div>
 <br />
 <div>
-  <form action="/" method="POST">
-    <label for="username">Usuario: {{detailsRecipe.owner.username}}</label>
-    <br />
+  <form action="/comment/{{detailsRecipe._id}}/create" method="POST">
+
     <label for="message">Comentario:</label>
     <textarea name="message" id="" cols="30" rows="10"></textarea>
+    <br />
+    <button type="submit">Enviar Comentario</button>
 
   </form>
 </div>
