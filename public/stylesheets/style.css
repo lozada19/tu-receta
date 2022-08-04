@@ -1,13 +1,12 @@
 body {   
   padding: 10px;
-  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/TURECETA.png");
   height: 100%;
   background-repeat: no-repeat;
   background-size: 1680px 900px, cover;
   
 }
+
 #mainNav {
   font-family: "Cabin","Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-bottom: 0;
@@ -29,6 +28,67 @@ body {
   justify-content: space-between;
   padding-top: .5rem;
   padding-bottom: .5rem;
+}
+
+#index {  
+  margin-top: 0px;
+  background-image: url("/images/index.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logo{
+
+  margin: center
+  ;
+}
+
+#login {
+  margin-top: 0px;
+  background-image: url("/images/login.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#signup {
+  margin-top: 0px;
+  background-image: url("/images/signup.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#py-4 {
+  margin-top: 0px;
+  width: 500px;
+  height: 500px;
+}
+
+#signupform {
+  background-color: rgb(230, 224, 224);
+height: 400px;
+width: 400px;
+}
+
+#recipelist {
+  margin-top: 0px;
+  color: white;
+  background-image: url("/images/list.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mb-1{
+  margin-left: 500px;
+  margin-right: 600px;
+}
+.centrar{
+  margin-left: 500px;
+  margin-right: 600px;
 }
 
 a {
