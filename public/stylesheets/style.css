@@ -1,7 +1,40 @@
 body {
-  padding: 50px;
+  padding: 10px;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/TURECETA.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 1680px 900px, cover;
+  
 }
+#mainNav {
+  font-family: "Cabin","Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin-bottom: 0;
+  padding: 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  background-color: #000;
+}
+
+#mainNav a {
+  color: #fff;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+
+
+
+
 
 a {
   color: #00b7ff;
