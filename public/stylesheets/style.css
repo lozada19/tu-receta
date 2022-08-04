@@ -1,4 +1,4 @@
-body {
+body {   
   padding: 10px;
   
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,7 +17,7 @@ body {
   background-color: #000;
 }
 
-#mainNav a {
+ #mainNav a {
   color: #fff;
 }
 
@@ -31,15 +31,10 @@ body {
   padding-bottom: .5rem;
 }
 
-
-
-
-
-
 a {
   color: #00b7ff;
 }
 
 h1 {
   color: 15px;
-}
+} 

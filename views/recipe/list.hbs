@@ -1,9 +1,9 @@
 <h1>Esta es la lista</h1>
 
-<div>
+<div class="list-group list-group-numbered">
   {{#each oneRecipe}}
     <li>
-      <a href="/recipe/{{this._id}}/details">{{this.recipename}}</a>
+      <a class="list-group-item"  href="/recipe/{{this._id}}/details">{{this.recipename}}</a>
     </li>
   {{/each}}
 </div>
