@@ -16,30 +16,34 @@
       <button type="submit"> eliminar</button>
     </form>
   
-
-</div>
-
-<br />
-
-<div>
-  <form action="/comment/{{detailsId._id}}/create" method="POST">
-
-    <label for="message">Comentario:</label>
-    <textarea name="message" id="" cols="30" rows="10"></textarea>
-    <br />
-    <button type="submit">Enviar Comentario</button>
-
-  </form>
-
 </div>
 {{/if}}
+
+<br />
+{{#if isUserActive}}
+<div>
+  <form action="/comment/{{detailsId._id}}/create" method="POST">
+    
+    <label for="message">Comentario:</label>
+    <textarea name="message" id="" cols="30" rows="10"></textarea>
+    <br/>
+    <button type="submit">Enviar Comentario</button>
+  </form>
+</div>
+{{/if}}
+
 <div>
 
   {{#each comment}}
-    <li>
-      <p>{{this.user.username}}</p>
+      <p>{{this.user.username}} comenta:</p>
       <p>{{this.message}}</p>
-    </li>
+      <br>
+     {{#if isOwner}}
+      <form action="/comment/{{this._id}}/delete" method="POST">
+      <button type="submit"> eliminar</button>
+      </form>
+      {{/if}}
+
   {{/each}}
 
 </div>

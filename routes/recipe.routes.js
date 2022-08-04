@@ -136,4 +136,10 @@ router.post("/:recipeId/delete", (req, res, next) => {
     });
 });
 
+//-------------------- IMAGEN ------------------------//
+// router.post("/:recipeId/upload", (req, res, next) => {
+
+// const 
+
+// })
 module.exports = router;

@@ -49,4 +49,17 @@ router.get("/:recipeId", (req, res, netx) => {
     });
 });
 
+router.post("/:commentId/delete", (req, res, next) => {
+  const { commentId } = req.params;
+  console.log(commentId)
+
+  CommentModel.findByIdAndDelete(commentId)
+    .then(() => {
+      res.redirect("/recipe");
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
