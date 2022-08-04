@@ -1,8 +1,12 @@
-<div>
+<section>
+<div class="container py-4" "row g-0 align-items-center" "col-lg-6 mb-5 mb-lg-0" "card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            " "card-body p-5 shadow-5 text-center">
   <form action="/recipe/{{dateRecipe._id}}/edit" method="POST">
 
-    <label for="recipename">Nombre:</label>
-    <input
+    <label class="form-label" for="recipename">Nombre:</label>
+    <input class="form-control" 
       type="text"
       name="recipename"
       required="true"
@@ -11,7 +15,7 @@
 
     <br />
     <label for="ingredients"> Ingredientes:</label>
-    <input
+    <input class="form-control" 
       type="text"
       name="ingredients"
       required="true"
@@ -19,19 +23,17 @@
     />
     <br />
     <label for="preparation">Preparacion:</label>
-    <input
+    <textarea class="form-control "  rows="15"
       type="text"
       name="preparation"
       required="true"
       value="{{dateRecipe.preparation}}"
-    />
+    ></textarea>
     <br />
 
-    <button>Editar</button>
+    <button class="btn btn-primary btn-block mb-4" >Editar</button>
   </form>
   <br />
-
-  <h3>Agregar o Cambiar imagen</h3>
 
   <form
     action="/recipe/{{dateRecipe._id}}/upload"
@@ -39,8 +41,9 @@
     enctype="multipart/form-data"
   >
     <label for="image">Selecciona la Imagen:</label>
-    <input type="file" name="image" />
-    <button type="submit">Enviar imagen</button>
+    <input class="form-control"  type="file" name="image" />
+    <button class="btn btn-primary btn-block mb-4" type="submit">Enviar imagen</button>
   </form>
 
 </div>
+</section>

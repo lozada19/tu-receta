@@ -1,23 +1,28 @@
 <h1>recetas</h1>
-
-<div>
+ 
+<section>
+<div class="container py-4" "row g-0 align-items-center" "col-lg-6 mb-5 mb-lg-0" "card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            " "card-body p-5 shadow-5 text-center">
   <form action="/recipe/create" method="POST">
 
-    <label for="recipename">Nombre:</label>
-    <input type="text" name="recipename" required="true" />
+    <label class="form-label" for="recipename">Nombre:</label>
+    <input class="form-control" type="text" name="recipename" required="true" />
     <br />
-    <label for="ingredients"> Ingredientes:</label>
-    <input type="text" name="ingredients" required="true" />
+    <label class="form-label" for="ingredients"> Ingredientes:</label>
+    <textarea class="form-control" type="text" name="ingredients" required="true"></textarea>
     <br />
-    <label for="preparation">Preparacion:</label>
-    <input type="text" name="preparation" required="true" />
+    <label class="form-label" for="preparation">Preparacion:</label>
+    <textarea class="form-control" type="text" name="preparation" required="true"></textarea>
     <br />
-    <button type="submit">Crear receta</button>
+    <button class="btn btn-primary btn-block mb-4" type="submit">Crear receta</button>
     <br />
     <form action="">
-      <label for="image">Selecciona la Imagen:</label>
-      <input type="file" name="image" />
+      <label class="form-label" for="image">Selecciona la Imagen:</label>
+      <input class="form-control" type="file" name="image" />
     </form>
 
   </form>
 </div>
+</section>
