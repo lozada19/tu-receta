@@ -3,6 +3,7 @@ const RecipeModel = require("../models/Recipe.model");
 const UserModel = require("../models/User.model");
 const { isLoggedIn, localsUpdate } = require("../middlewares/auth.js");
 const CommentModel = require("../models/Comment.model");
+const uploader = require("../middlewares/uploader.js");
 
 //GET
 // ------------------------- CREAMOS RECETAS------------------------- //
@@ -106,13 +107,14 @@ router.post("/:recipeId/edit", (req, res, next) => {
   const { recipeId } = req.params;
 
   //recibe la data de las recetas
-  const { recipename, ingredients, preparation } = req.body;
+  const { recipename, ingredients, preparation, image } = req.body;
 
   // actualizar las recetas
   RecipeModel.findByIdAndUpdate(recipeId, {
     recipename: recipename,
     ingredients: ingredients,
     preparation: preparation,
+    image: image,
   })
     .then(() => {
       res.redirect("/recipe");
@@ -137,9 +139,20 @@ router.post("/:recipeId/delete", (req, res, next) => {
 });
 
 //-------------------- IMAGEN ------------------------//
-// router.post("/:recipeId/upload", (req, res, next) => {
+//
+router.post("/:recipeId/upload", uploader.single("image"), (req, res, next) => {
+  const { recipeId } = req.params;
 
-// const 
+  console.log(req.body);
 
-// })
+  RecipeModel.findByIdAndUpdate(recipeId, {
+    image: req.file.path,
+  })
+    .then(() => {
+      res.redirect(`/recipe/${recipeId}/details`);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 module.exports = router;
