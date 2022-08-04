@@ -1,11 +1,20 @@
+<div id="profile">
+  <div id="py-4" class="d-grid gap-2 col-6 mx-auto">
+    <h1>Bienvenido a su perfil!
+      <br />
+      Estas son sus recetas...</h1>
 
-<h1>Mis recetas</h1>
-<section>
-<div>
-  {{#each myRecipe}}
-    
-      <a href="/recipe/{{this._id}}/details">{{this.recipename}}</a>
-    
-  {{/each}}
+    <div>
+      {{#each myRecipe}}
+        <h5>
+
+          <a
+            class="btn btn-dark btn-rounded"
+            href="/recipe/{{this._id}}/details"
+          >{{this.recipename}}</a>
+        </h5>
+
+      {{/each}}
+    </div>
+  </div>
 </div>
-</section>

@@ -91,6 +91,43 @@ width: 400px;
   margin-right: 600px;
 }
 
+#profile{
+  color: white;
+  margin-top: 0px;
+  background-image: url("/images/profile.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+#newrecipe {
+  color: black;
+  margin-top: 0px;
+  background-image: url("/images/newrecipe.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+#edit{
+  margin-top: 0px;
+  background-image: url("/images/edit.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+#detailsPage{
+  margin-top: 0px;
+  background-image: url("/images/details.png");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
 a {
   color: #00b7ff;
 }

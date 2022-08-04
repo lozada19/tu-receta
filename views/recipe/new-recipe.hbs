@@ -1,10 +1,12 @@
-<h1>recetas</h1>
+<div id="newrecipe">
+
  
-<section>
+<div>
 <div class="container py-4" "row g-0 align-items-center" "col-lg-6 mb-5 mb-lg-0" "card cascading-right" style="
             background: hsla(0, 0%, 100%, 0.55);
             backdrop-filter: blur(30px);
             " "card-body p-5 shadow-5 text-center">
+            <h1>recetas</h1>
   <form action="/recipe/create" method="POST">
 
     <label class="form-label" for="recipename">Nombre:</label>
@@ -18,11 +20,16 @@
     <br />
     <button class="btn btn-primary btn-block mb-4" type="submit">Crear receta</button>
     <br />
-    <form action="">
+    {{!-- <form action="/recipe/{{dateRecipe._id}}/upload"
+    method="POST"
+    enctype="multipart/form-data"
+  >
       <label class="form-label" for="image">Selecciona la Imagen:</label>
       <input class="form-control" type="file" name="image" />
-    </form>
+      <button class="btn btn-primary btn-block mb-4" type="submit">Enviar imagen</button>
+    </form> --}}
 
   </form>
 </div>
-</section>
+</div>
+</div>

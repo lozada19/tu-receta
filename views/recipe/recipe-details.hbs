@@ -1,51 +1,56 @@
-<h2>Detalles de las recetas</h2>
+<div id="detailsPage">
+  <div class="container py-4" "row g-0 align-items-center" "col-lg-6 mb-5 mb-lg-0" "card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            " "card-body p-5 shadow-5 text-center">>
+  <h1>Detalles de las recetas</h1>
 
-<div class="d-inline-flex p-2">
-  <div>
-  <h1>Nombre: {{detailsId.recipename}}</h1>
-  <p>Ingredientes: {{detailsId.ingredients}}</p>
-  <p>Preparacion: {{detailsId.preparation}}</p>
-  <p >Creador: {{detailsId.owner.username}}</p>
+  <div class="d-inline-flex p-2">
+    <div>
+      <h2>Nombre: {{detailsId.recipename}}</h2>
+      <p>Ingredientes: {{detailsId.ingredients}}</p>
+      <p>Preparacion: {{detailsId.preparation}}</p>
+      <p>Creador: {{detailsId.owner.username}}</p>
 
-  <img src="{{detailsId.image}}" alt="" width="200px" />
-  <br />
+      <img src="{{detailsId.image}}" alt="" width="200px" />
+      <br />
 
-  {{#if isOwner}}
-    <a href="/recipe/{{detailsId._id}}/edit"><button>Editar</button></a>
+      {{#if isOwner}}
+        <a href="/recipe/{{detailsId._id}}/edit"><button class="btn btn-primary btn-block mb-4">Editar</button></a>
 
-    <form action="/recipe/{{detailsId._id}}/delete" method="POST">
-      <button type="submit"> eliminar</button>
-    </form>
-  {{/if}}
+        <form action="/recipe/{{detailsId._id}}/delete" method="POST">
+          <button class="btn btn-danger btn-block mb-4" type="submit"> eliminar</button>
+        </form>
+      {{/if}}
+    </div>
   </div>
-</div>
 
+  <br />
+  {{#if isUserActive}}
+    <div>
+      <form action="/comment/{{detailsId._id}}/create" method="POST">
 
-<br />
-{{#if isUserActive}}
-<div>
-  <form action="/comment/{{detailsId._id}}/create" method="POST">
-    
-    <label for="message">Comentario:</label>
-    <textarea name="message" id="" cols="30" rows="10"></textarea>
-    <br/>
-    <button type="submit">Enviar Comentario</button>
-  </form>
-</div>
-{{/if}}
+        <label for="message">Comentario:</label> <br>
+        <textarea name="message" id="" cols="30" rows="5"></textarea>
+        <br />
+        <button class="btn btn-success" type="submit">Enviar Comentario</button>
+      </form>
+    </div>
+  {{/if}}
 
-<div>
+  <div>
 
-  {{#each comment}}
+    {{#each comment}}
       <p>{{this.user.username}} comenta:</p>
       <p>{{this.message}}</p>
-      <br>
-     {{#if isOwner}}
-      <form action="/comment/{{this._id}}/delete" method="POST">
-      <button type="submit"> eliminar</button>
-      </form>
+      <br />
+      {{#if isOwner}}
+        <form action="/comment/{{this._id}}/delete" method="POST">
+          <button type="submit"> eliminar</button>
+        </form>
       {{/if}}
 
-  {{/each}}
-
+    {{/each}}
+</div>
+  </div>
 </div>
