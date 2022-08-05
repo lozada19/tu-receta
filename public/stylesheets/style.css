@@ -55,8 +55,8 @@ body {
 }
 #py-4 {
   margin-top: 0px;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 50px;
 }
 #signupform {
   background-color: rgb(230, 224, 224);
@@ -89,6 +89,12 @@ width: 400px;
   background-repeat: no-repeat;
   background-size: cover;
 }
+#links{
+  width: 400px;
+  height: 50px;
+  
+}
+
 #newrecipe {
   color: black;
   margin-top: 0px;

@@ -5,6 +5,7 @@
       Estas son sus recetas...</h1>
     {{#each myRecipe}}
       <a
+        id="links"
         class="btn btn-dark btn-rounded"
         href="/recipe/{{this._id}}/details"
       ><h3> {{this.recipename}} </h3></a>
