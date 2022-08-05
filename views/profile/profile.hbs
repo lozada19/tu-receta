@@ -3,18 +3,11 @@
     <h1>Bienvenido a su perfil!
       <br />
       Estas son sus recetas...</h1>
-
-    <div>
-      {{#each myRecipe}}
-        <h5>
-
-          <a
-            class="btn btn-dark btn-rounded"
-            href="/recipe/{{this._id}}/details"
-          >{{this.recipename}}</a>
-        </h5>
-
-      {{/each}}
-    </div>
+    {{#each myRecipe}}
+      <a
+        class="btn btn-dark btn-rounded"
+        href="/recipe/{{this._id}}/details"
+      ><h3> {{this.recipename}} </h3></a>
+    {{/each}}
   </div>
 </div>

@@ -1,12 +1,10 @@
-body {   
+body {
   padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
   background-repeat: no-repeat;
   background-size: 1680px 900px, cover;
-  
 }
-
 #mainNav {
   font-family: "Cabin","Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-bottom: 0;
@@ -15,11 +13,9 @@ body {
   border-bottom: 1px solid rgba(255,255,255,.3);
   background-color: #000;
 }
-
 #mainNav a {
   color: #fff;
 }
-
 .navbar {
   position: relative;
   display: flex;
@@ -29,34 +25,30 @@ body {
   padding-top: .5rem;
   padding-bottom: .5rem;
 }
-
-#index {  
+#index {
   margin-top: 0px;
   background-image: url("/images/index.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 #logo{
-
   margin: center
   ;
 }
-
 #login {
   margin-top: 0px;
   background-image: url("/images/login.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 #signup {
   margin-top: 0px;
   background-image: url("/images/signup.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -66,18 +58,16 @@ body {
   width: 500px;
   height: 500px;
 }
-
 #signupform {
   background-color: rgb(230, 224, 224);
 height: 400px;
 width: 400px;
 }
-
 #recipelist {
   margin-top: 0px;
   color: white;
   background-image: url("/images/list.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -90,48 +80,43 @@ width: 400px;
   margin-left: 500px;
   margin-right: 600px;
 }
-
 #profile{
   color: white;
   margin-top: 0px;
   background-image: url("/images/profile.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
 }
 #newrecipe {
   color: black;
   margin-top: 0px;
   background-image: url("/images/newrecipe.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
 }
 #edit{
   margin-top: 0px;
   background-image: url("/images/edit.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
 }
 #detailsPage{
   margin-top: 0px;
   background-image: url("/images/details.png");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
-
-
 a {
-  color: #00b7ff;
+  color: #00B7FF;
 }
-
 h1 {
   color: 15px;
-} 
+}
