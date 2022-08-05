@@ -2,14 +2,14 @@
   <div class="container py-4" "row g-0 align-items-center" "col-lg-6 mb-5 mb-lg-0" "card cascading-right" style="
             background: hsla(0, 0%, 100%, 0.55);
             backdrop-filter: blur(30px);
-            " "card-body p-5 shadow-5 text-center">>
+            " "card-body p-5 shadow-5 text-center">
   <h1>Detalles de las recetas</h1>
 
   <div class="d-inline-flex p-2">
     <div>
-      <h2>Nombre: {{detailsId.recipename}}</h2>
+      <h2>{{detailsId.recipename}}</h2>
       <p>Ingredientes: {{detailsId.ingredients}}</p>
-      <p>Preparacion: {{detailsId.preparation}}</p>
+      <p>Preparación: {{detailsId.preparation}}</p>
       <p>Creador: {{detailsId.owner.username}}</p>
 
       <img src="{{detailsId.image}}" alt="" width="200px" />
@@ -46,7 +46,7 @@
       <br />
       {{#if isOwner}}
         <form action="/comment/{{this._id}}/delete" method="POST">
-          <button type="submit"> eliminar</button>
+          <button type="submit"> Eliminar</button>
         </form>
       {{/if}}
 
